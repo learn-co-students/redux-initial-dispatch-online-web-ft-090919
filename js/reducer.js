@@ -1,6 +1,6 @@
-let state = {count: 0};
+let state; //starts off undefined without declaring
 
-function changeState(state, action){
+function changeState(state = { count: 0}, action){
     switch (action.type) {
       case 'INCREASE_COUNT':
         return {count: state.count + 1}
@@ -9,7 +9,7 @@ function changeState(state, action){
     }
   }
 
-function dispatch(action){
+function dispatch(action){ //calls the changestate reducer
     state = changeState(state, action)
     render()
 }
@@ -17,3 +17,5 @@ function dispatch(action){
 function render(){
     document.body.textContent = state.count
 }
+
+dispatch({type: "@@INIT"}) //@@INIT calls dispatch function and passes initial action
