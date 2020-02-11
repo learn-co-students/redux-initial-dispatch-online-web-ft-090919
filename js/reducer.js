@@ -12,7 +12,8 @@ function changeState(state, action){
 function dispatch(action){
     state = changeState(state, action)
     render()
-}
+} 
+
 
 function render(){
     document.body.textContent = state.count
